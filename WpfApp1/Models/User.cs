@@ -147,14 +147,15 @@ namespace HelloWorldUpdated.Models
                             }
                             return PasswordError;
                         }
-                    case "Submit":
+                    case "SubmitError":
                         {
-                            SubmitError = "";
-                            if (!(string.IsNullOrEmpty(Password)) && !(string.IsNullOrEmpty(Name)))
+                            
+                            SubmitError = "test";
+                            if ((string.IsNullOrEmpty(PasswordError)) && (string.IsNullOrEmpty(NameError)))
                             {
-                                SubmitError = "Error";
+                                SubmitError = null;
                             }
-                            return NameError;
+                            return SubmitError;
                         }
                 }
                 return null;
