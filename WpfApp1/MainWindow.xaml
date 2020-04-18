@@ -33,14 +33,14 @@
         <TextBlock>Enter Password:</TextBlock>
         <TextBox x:Name="uxPassword" Text="{Binding Password, 
             UpdateSourceTrigger=PropertyChanged, 
-            ValidatesOnDataErrors=True}">
-        </TextBox>
+            ValidatesOnDataErrors=True}"/>
         <Label x:Name="uxPasswordError" 
             Content="{Binding PasswordError, 
             UpdateSourceTrigger=PropertyChanged}">
         </Label>
 
-        <Button x:Name="uxSubmit" Click="uxSubmit_Click">Submit
+        <Button x:Name="uxSubmit" Click="uxSubmit_Click" IsEnabled="{Binding SubmitError, ValidatesOnDataErrors=True, 
+            UpdateSourceTrigger=PropertyChanged}">Submit
         </Button>
 
     </StackPanel>

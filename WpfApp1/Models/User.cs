@@ -8,7 +8,25 @@ namespace HelloWorldUpdated.Models
         private string password = string.Empty;
         private string nameError;
         private string passwordError;
+        private string submitError;
 
+        public string SubmitError
+        {
+            get
+            {
+                return submitError;
+            }
+            set
+            {
+                if (submitError != value)
+                {
+                    submitError = value;
+                    OnPropertyChanged("SubmitError");
+                }
+            }
+        }
+         
+        
         public string NameError
         {
             get
@@ -75,6 +93,15 @@ namespace HelloWorldUpdated.Models
             }
         }
 
+        //// IDataErrorInfo interface
+        //public string Error
+        //{
+        //    get
+        //    {
+        //        return NameError;
+        //    }
+        //}
+
         // IDataErrorInfo interface
         public string Error
         {
@@ -90,7 +117,7 @@ namespace HelloWorldUpdated.Models
         {
             get
             {
-                
+
                 switch (columnName)
                 {
                     case "Name":
@@ -99,6 +126,7 @@ namespace HelloWorldUpdated.Models
                             if (string.IsNullOrEmpty(Name))
                             {
                                 NameError = "Name cannot be empty.";
+                                
                             }
                             if (Name.Length > 12)
                             {
@@ -113,11 +141,20 @@ namespace HelloWorldUpdated.Models
                             {
                                 PasswordError = "Password cannot be empty.";
                             }
-                            //if (Password.Length > 12)
-                            //{
-                            //    NameError = "Name cannot be longer than 12 characters.";
-                            //}
+                            if (Password.Length > 12)
+                            {
+                                PasswordError = "Password cannot be longer than 12 characters.";
+                            }
                             return PasswordError;
+                        }
+                    case "Submit":
+                        {
+                            SubmitError = "";
+                            if (!(string.IsNullOrEmpty(Password)) && !(string.IsNullOrEmpty(Name)))
+                            {
+                                SubmitError = "Error";
+                            }
+                            return NameError;
                         }
                 }
                 return null;
@@ -134,5 +171,6 @@ namespace HelloWorldUpdated.Models
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
     }
 }
