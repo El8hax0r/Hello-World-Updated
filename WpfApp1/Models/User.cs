@@ -25,8 +25,8 @@ namespace HelloWorldUpdated.Models
                 }
             }
         }
-         
-        
+
+
         public string NameError
         {
             get
@@ -126,7 +126,7 @@ namespace HelloWorldUpdated.Models
                             if (string.IsNullOrEmpty(Name))
                             {
                                 NameError = "Name cannot be empty.";
-                                
+
                             }
                             if (Name.Length > 12)
                             {
@@ -149,7 +149,7 @@ namespace HelloWorldUpdated.Models
                         }
                     case "SubmitError":
                         {
-                            
+
                             SubmitError = "test";
                             if ((string.IsNullOrEmpty(PasswordError)) && (string.IsNullOrEmpty(NameError)))
                             {

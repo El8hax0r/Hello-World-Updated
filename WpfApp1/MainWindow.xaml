@@ -39,8 +39,19 @@
             UpdateSourceTrigger=PropertyChanged}">
         </Label>
 
-        <Button x:Name="uxSubmit" Click="uxSubmit_Click" IsEnabled="{Binding SubmitError, ValidatesOnDataErrors=True, 
-            UpdateSourceTrigger=PropertyChanged}">Submit
+        <Button Content="Submit" Command="{Binding Submit}">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=uxName, Path=Text.Length,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Value="0">
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=uxPassword, Path=Text.Length,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Value="0">
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
         </Button>
 
     </StackPanel>
