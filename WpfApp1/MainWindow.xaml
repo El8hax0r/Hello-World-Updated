@@ -39,7 +39,7 @@
             UpdateSourceTrigger=PropertyChanged}">
         </Label>
 
-        <Button Content="Submit" Command="{Binding Submit}">
+        <Button Content="Submit" Click="uxSubmit_Click" >
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Style.Triggers>
@@ -53,6 +53,7 @@
                 </Style>
             </Button.Style>
         </Button>
+
 
     </StackPanel>
 </Window>
