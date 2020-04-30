@@ -5,13 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HelloWorldUpdated"
         mc:Ignorable="d"
-        Title="MainWindow" Height="382" Width="561">
+        Title="MainWindow" Height="500" Width="561">
 
-    <StackPanel x:Name="uxContainer">
+    <StackPanel x:Name="uxContainer" Margin="0,0,0,-61">
+        <ListView x:Name="uxList">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding UserName}" Header="User Name" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding UserPassword}" Header="Password" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding UserAge}" Header="Age" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
 
-
-        <Button Margin="0,20,0,20" Height="150" Width="534">
+        <Button Margin="0,20,0,20" Height="90" Width="400">
             <StackPanel Orientation="Horizontal">
                 <Image Source="images/ic_thumb_up_black_24dp_2x.png" />
                 <TextBlock Margin="30" Text="Thumbs Up" VerticalAlignment="Center"/>

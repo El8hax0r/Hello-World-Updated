@@ -9,6 +9,11 @@ namespace HelloWorldUpdated.Models
         private string nameError;
         private string passwordError;
         private string submitError;
+        //add ToString method
+        public override string ToString()
+        {
+            return name;
+        }
 
         public string SubmitError
         {
@@ -43,7 +48,6 @@ namespace HelloWorldUpdated.Models
             }
         }
 
-        //added to get Password to work - copying NameError property
         public string PasswordError
         {
             get
@@ -59,7 +63,6 @@ namespace HelloWorldUpdated.Models
                 }
             }
         }
-        //end
 
         public string Name
         {

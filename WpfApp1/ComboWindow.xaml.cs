@@ -1,0 +1,27 @@
+﻿using System.Windows;
+using System.Windows.Controls;
+using Microsoft.EntityFrameworkCore;
+
+
+namespace HelloWorldUpdated
+{
+    /// <summary>
+    /// Interaction logic for ComboWindow.xaml
+    /// </summary>
+    public partial class ComboWindow : Window
+    {
+        public ComboWindow()
+        {
+            InitializeComponent();
+            var sample = new SampleContext();
+            sample.User.Load();
+            uxComboBox.ItemsSource = sample.User.Local.ToObservableCollection();
+        }
+
+        private void uxComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            uxGrid.DataContext = e.AddedItems[0];
+        }
+
+    }
+}
